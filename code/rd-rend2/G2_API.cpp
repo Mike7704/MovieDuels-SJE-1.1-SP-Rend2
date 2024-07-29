@@ -2151,27 +2151,16 @@ char* G2API_GetGLAName(CGhoul2Info* ghlInfo)
 	return NULL;
 }
 
-qboolean G2API_SetNewOrigin(CGhoul2Info* ghlInfo, const int bolt_index)
+qboolean G2API_SetNewOrigin(CGhoul2Info* ghlInfo, const int boltIndex)
 {
 	if (G2_SetupModelPointers(ghlInfo))
 	{
-		if (bolt_index < 0)
+		// check for valid boltIndex before applying new origin
+		if (boltIndex >= 0 && boltIndex < (int)ghlInfo->mBltlist.size())
 		{
-			char modelName[MAX_QPATH];
-			if (ghlInfo->currentModel && ghlInfo->currentModel->name[0])
-			{
-				strcpy(modelName, ghlInfo->currentModel->name);
-			}
-			else
-			{
-				strcpy(modelName, "[Unknown - unexpected]");
-			}
-
-			Com_Error(ERR_DROP, "Bad boltindex (%i) trying to SetNewOrigin (naughty naughty!)\nModel %s\n", bolt_index, modelName);
+			ghlInfo->mNewOrigin = boltIndex;
+			ghlInfo->mFlags |= GHOUL2_NEWORIGIN;
 		}
-
-		ghlInfo->mNewOrigin = bolt_index;
-		ghlInfo->mFlags |= GHOUL2_NEWORIGIN;
 		return qtrue;
 	}
 	return qfalse;
