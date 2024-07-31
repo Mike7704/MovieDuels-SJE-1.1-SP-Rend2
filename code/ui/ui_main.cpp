@@ -3327,8 +3327,8 @@ void UI_LoadMenus(const char* menuFile, const qboolean reset)
 	Com_Printf("----- Genuine MovieDuels SerenityJediEngine(Solaris Edition)-----\n");
 	Com_Printf("---------------- MovieDuels-SJE-1.0-SP---------------------------\n");
 	Com_Printf("-----------------------------------------------------------------\n");
-	Com_Printf("------------------------Update 6.5.3-----------------------------\n");
-	Com_Printf("------------------Build Date 29/07/2024--------------------------\n");
+	Com_Printf("------------------------Update 6.5.4-----------------------------\n");
+	Com_Printf("------------------Build Date 31/07/2024--------------------------\n");
 	Com_Printf("-----------------------------------------------------------------\n");
 	Com_Printf("------------------------LightSaber-------------------------------\n");
 	Com_Printf("-----------An elegant weapon for a more civilized age------------\n");
