@@ -851,6 +851,7 @@ void CG_RegisterWeapon(const int weapon_num)
 	case WP_CLONERIFLE:
 	case WP_CLONECOMMANDO:
 	case WP_WRIST_BLASTER:
+	case WP_ROTARY_CANNON:
 		cgs.effects.wristShotEffect = theFxScheduler.RegisterEffect("wrist/wristprojectile");
 		cgs.effects.cloneShotEffect = theFxScheduler.RegisterEffect("clone/projectile");
 		cgs.effects.cloneWallImpactEffect = theFxScheduler.RegisterEffect("clone/wall_impact");
@@ -3342,6 +3343,7 @@ void CG_DrawWeaponSelect()
 				|| i == WP_JANGO
 				|| i == WP_BOBA
 				|| i == WP_CLONEPISTOL
+				|| i == WP_ROTARY_CANNON
 				|| i == WP_DUAL_CLONEPISTOL
 				|| i == WP_DUAL_PISTOL))
 		{
@@ -3474,6 +3476,7 @@ void CG_DrawWeaponSelect()
 				i != WP_JANGO &&
 				i != WP_BOBA &&
 				i != WP_CLONEPISTOL &&
+				i != WP_ROTARY_CANNON &&
 				i != WP_DUAL_CLONEPISTOL &&
 				i != WP_DUAL_PISTOL)
 			{
@@ -3629,6 +3632,7 @@ void CG_DrawWeaponSelect()
 				i != WP_JANGO &&
 				i != WP_BOBA &&
 				i != WP_CLONEPISTOL &&
+				i != WP_ROTARY_CANNON &&
 				i != WP_DUAL_CLONEPISTOL &&
 				i != WP_DUAL_PISTOL)
 			{
@@ -3782,6 +3786,7 @@ void CG_DrawWeaponSelect_kotor()
 				|| i == WP_JANGO
 				|| i == WP_BOBA
 				|| i == WP_CLONEPISTOL
+				|| i == WP_ROTARY_CANNON
 				|| i == WP_DUAL_CLONEPISTOL
 				|| i == WP_DUAL_PISTOL))
 		{
@@ -3914,6 +3919,7 @@ void CG_DrawWeaponSelect_kotor()
 				i != WP_JANGO &&
 				i != WP_BOBA &&
 				i != WP_CLONEPISTOL &&
+				i != WP_ROTARY_CANNON &&
 				i != WP_DUAL_CLONEPISTOL &&
 				i != WP_DUAL_PISTOL)
 			{
@@ -4069,6 +4075,7 @@ void CG_DrawWeaponSelect_kotor()
 				i != WP_JANGO &&
 				i != WP_BOBA &&
 				i != WP_CLONEPISTOL &&
+				i != WP_ROTARY_CANNON &&
 				i != WP_DUAL_CLONEPISTOL &&
 				i != WP_DUAL_PISTOL)
 			{
@@ -4209,6 +4216,7 @@ void CG_DrawWeaponSelect_text()
 				|| i == WP_JANGO
 				|| i == WP_BOBA
 				|| i == WP_CLONEPISTOL
+				|| i == WP_ROTARY_CANNON
 				|| i == WP_DUAL_CLONEPISTOL
 				|| i == WP_DUAL_PISTOL))
 		{
@@ -4319,6 +4327,7 @@ static qboolean CG_WeaponSelectable(int i, const int original, const qboolean dp
 			i != WP_JANGO &&
 			i != WP_BOBA &&
 			i != WP_CLONEPISTOL &&
+			i != WP_ROTARY_CANNON &&
 			i != WP_DUAL_CLONEPISTOL &&
 			i != WP_DUAL_PISTOL)
 		{
@@ -5698,6 +5707,7 @@ void CG_MissileHitWall(const centity_t* cent, const int weapon, vec3_t origin, v
 		break;
 
 	case WP_CLONERIFLE:
+	case WP_ROTARY_CANNON:
 		FX_CloneWeaponHitWall(origin, dir);
 		break;
 
@@ -5943,6 +5953,7 @@ void CG_MissileHitPlayer(const centity_t* cent, const int weapon, vec3_t origin,
 		break;
 
 	case WP_CLONERIFLE:
+	case WP_ROTARY_CANNON:
 		FX_CloneWeaponHitPlayer(other, origin, dir, humanoid);
 		break;
 

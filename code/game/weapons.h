@@ -119,6 +119,7 @@ using weapon_t = enum //# weapon_e
 	WP_BOBA,
 	WP_CLONEPISTOL,
 	//pistol
+	WP_ROTARY_CANNON,
 
 	//# #eol
 	WP_NUM_WEAPONS
@@ -337,6 +338,19 @@ using ammoData_t = struct ammoData_s
 #define CLONEPISTOL_VEL				1800
 #define CLONEPISTOL_DAMAGE			14
 #define CLONEPISTOL_CHARGE_UNIT		150.0f
+
+// ROTARY CANNON
+//---------
+#define ROTARYCANNON_MAIN_SPREAD		0.1f
+#define ROTARYCANNON_ALT_SPREAD			0.8f
+#define ROTARYCANNON_NPC_SPREAD			0.1f
+#define ROTARYCANNON_VELOCITY			2300
+#define ROTARYCANNON_NPC_VEL_CUT		0.5f
+#define ROTARYCANNON_NPC_HARD_VEL_CUT	0.7f
+#define ROTARYCANNON_DAMAGE				20
+#define	ROTARYCANNON_NPC_DAMAGE_EASY	6
+#define	ROTARYCANNON_NPC_DAMAGE_NORMAL	12 // 14
+#define	ROTARYCANNON_NPC_DAMAGE_HARD	16 // 18
 
 // Tenloss Disruptor
 //----------

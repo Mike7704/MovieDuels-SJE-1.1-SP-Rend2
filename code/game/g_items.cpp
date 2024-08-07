@@ -2004,6 +2004,7 @@ static qboolean HeHasGun(const gentity_t* ent)
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_SBD_BLASTER:
 	case WP_DUAL_PISTOL:
 	case WP_DUAL_CLONEPISTOL:

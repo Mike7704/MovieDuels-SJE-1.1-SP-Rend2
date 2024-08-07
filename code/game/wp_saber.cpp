@@ -14641,6 +14641,8 @@ int BasicWeaponBlockCosts[NUM_MODS] =
 	20, //MOD_REY_ALT,
 	20, //MOD_CLONEPISTOL,
 	20, //MOD_CLONEPISTOL_ALT,
+	20, //MOD_ROTARY_CANNON,
+	20, //MOD_ROTARY_CANNON_ALT,
 	20, //MOD_JANGO,
 	20, //MOD_JANGO_ALT,
 	20, //MOD_BOBA,
@@ -30227,6 +30229,7 @@ static qboolean ThisGuyIsAGunner(const gentity_t* self)
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_SBD_BLASTER:
 	case WP_DUAL_PISTOL:
 	case WP_DUAL_CLONEPISTOL:

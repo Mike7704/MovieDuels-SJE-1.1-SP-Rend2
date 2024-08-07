@@ -391,6 +391,9 @@ gentity_t* TossClientItems(gentity_t* self)
 				case WP_CLONEPISTOL:
 					dropped->count = 15;
 					break;
+				case WP_ROTARY_CANNON:
+					dropped->count = 150;
+					break;
 				default:
 					dropped->count = 0;
 					break;
@@ -2920,6 +2923,8 @@ static qboolean G_DoGunDismemberment(gentity_t* self, vec3_t point, const int mo
 		|| mod == MOD_REY_ALT
 		|| mod == MOD_CLONEPISTOL
 		|| mod == MOD_CLONEPISTOL_ALT
+		|| mod == MOD_ROTARY_CANNON
+		|| mod == MOD_ROTARY_CANNON_ALT
 		|| mod == MOD_JANGO
 		|| mod == MOD_JANGO_ALT
 		|| mod == MOD_BOBA
@@ -4403,6 +4408,8 @@ void player_die(gentity_t* self, gentity_t* inflictor, gentity_t* attacker, cons
 				|| means_of_death == MOD_REY_ALT
 				|| means_of_death == MOD_CLONEPISTOL
 				|| means_of_death == MOD_CLONEPISTOL_ALT
+				|| means_of_death == MOD_ROTARY_CANNON
+				|| means_of_death == MOD_ROTARY_CANNON_ALT
 				|| means_of_death == MOD_JANGO
 				|| means_of_death == MOD_JANGO_ALT
 				|| means_of_death == MOD_BOBA
@@ -7449,6 +7456,10 @@ void G_TrackWeaponUsage(const gentity_t* self, const gentity_t* inflictor, const
 		case MOD_CLONEPISTOL_ALT:
 			weapon = WP_CLONEPISTOL;
 			break;
+		case MOD_ROTARY_CANNON:
+		case MOD_ROTARY_CANNON_ALT:
+			weapon = WP_ROTARY_CANNON;
+			break;
 		case MOD_JANGO:
 		case MOD_JANGO_ALT:
 			weapon = WP_JANGO;
@@ -8197,6 +8208,8 @@ void G_Damage(gentity_t* targ, gentity_t* inflictor, gentity_t* attacker, const 
 				case MOD_REY_ALT:
 				case MOD_CLONEPISTOL:
 				case MOD_CLONEPISTOL_ALT:
+				case MOD_ROTARY_CANNON:
+				case MOD_ROTARY_CANNON_ALT:
 				case MOD_JANGO:
 				case MOD_JANGO_ALT:
 				case MOD_BOBA:
@@ -8894,6 +8907,7 @@ void G_Damage(gentity_t* targ, gentity_t* inflictor, gentity_t* attacker, const 
 			|| inflictor->s.weapon == WP_DUAL_CLONEPISTOL
 			|| inflictor->s.weapon == WP_BOBA
 			|| inflictor->s.weapon == WP_CLONEPISTOL
+			|| inflictor->s.weapon == WP_ROTARY_CANNON
 			|| inflictor->s.weapon == WP_DROIDEKA
 			|| inflictor->s.weapon == WP_JAWA)
 		{

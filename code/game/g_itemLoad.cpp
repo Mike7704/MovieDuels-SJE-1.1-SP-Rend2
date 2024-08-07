@@ -172,6 +172,8 @@ static void IT_Name(const char** hold_buf)
 		itemNum = ITM_BOBA_PICKUP;
 	else if (!Q_stricmp(token_str, "ITM_CLONEPISTOL_PICKUP"))
 		itemNum = ITM_CLONEPISTOL_PICKUP;
+	else if (!Q_stricmp(token_str, "ITM_ROTARY_CANNON_PICKUP"))
+		itemNum = ITM_ROTARY_CANNON_PICKUP;
 	else if (!Q_stricmp(token_str, "ITM_SBD_BLASTER_PICKUP"))
 		itemNum = ITM_SBD_BLASTER_PICKUP;
 	else if (!Q_stricmp(token_str, "ITM_DUALPISTOL_PICKUP"))
@@ -426,6 +428,8 @@ static void IT_Tag(const char** hold_buf)
 		tag = WP_BOBA;
 	else if (!Q_stricmp(token_str, "WP_CLONEPISTOL"))
 		tag = WP_CLONEPISTOL;
+	else if (!Q_stricmp(token_str, "WP_ROTARY_CANNON"))
+		tag = WP_ROTARY_CANNON;
 	else if (!Q_stricmp(token_str, "WP_WRIST_BLASTER"))
 		tag = WP_WRIST_BLASTER;
 

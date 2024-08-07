@@ -1997,6 +1997,7 @@ HUDMenuItem_t otherHUDBits[] =
 	{"righthud", "weapontype_jango", 0, 0, 0, 0, {0.0f, 0.0f, 0.0f, 0.0f}, NULL_HANDLE}, // OHB_JANGO
 	{"righthud", "weapontype_boba", 0, 0, 0, 0, {0.0f, 0.0f, 0.0f, 0.0f}, NULL_HANDLE}, // OHB_BOBA
 	{"righthud", "weapontype_clonepistol", 0, 0, 0, 0, {0.0f, 0.0f, 0.0f, 0.0f}, NULL_HANDLE}, // OHB_CLONEPISTOL
+	{"righthud", "weapontype_rotarycannon", 0, 0, 0, 0, {0.0f, 0.0f, 0.0f, 0.0f}, NULL_HANDLE}, // OHB_ROTARY_CANNON
 	{"righthud", "weapontype_wrist", 0, 0, 0, 0, {0.0f, 0.0f, 0.0f, 0.0f}, NULL_HANDLE}, // OHB_WRIST
 	{"righthud", "weapontype_jangodual", 0, 0, 0, 0, {0.0f, 0.0f, 0.0f, 0.0f}, NULL_HANDLE}, // OHB_DUAL
 	{"righthud", "weapontype_droideka", 0, 0, 0, 0, {0.0f, 0.0f, 0.0f, 0.0f}, NULL_HANDLE}, // OHB_DEKA
