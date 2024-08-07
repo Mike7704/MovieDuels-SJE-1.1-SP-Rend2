@@ -10673,7 +10673,8 @@ static void PM_Footsteps()
 					pm->ps->weapon == WP_CLONECOMMANDO ||
 					pm->ps->weapon == WP_BOBA ||
 					pm->ps->weapon == WP_REBELRIFLE ||
-					pm->ps->weapon == WP_REPEATER)
+					pm->ps->weapon == WP_REPEATER ||
+					pm->ps->weapon == WP_ROTARY_CANNON)
 				{
 					PM_SetAnim(pm, SETANIM_LEGS, BOTH_RUNBACK_BLASTER, set_anim_flags);
 				}
@@ -10842,7 +10843,8 @@ static void PM_Footsteps()
 					pm->ps->weapon == WP_CLONECOMMANDO ||
 					pm->ps->weapon == WP_BOBA ||
 					pm->ps->weapon == WP_REBELRIFLE ||
-					pm->ps->weapon == WP_REPEATER)
+					pm->ps->weapon == WP_REPEATER ||
+					pm->ps->weapon == WP_ROTARY_CANNON)
 				{
 					PM_SetAnim(pm, SETANIM_LEGS, BOTH_WALKBACK_BLASTER, set_anim_flags);
 				}
@@ -11098,7 +11100,8 @@ static void PM_Footsteps()
 						pm->ps->weapon == WP_CLONECOMMANDO ||
 						pm->ps->weapon == WP_BOBA ||
 						pm->ps->weapon == WP_REBELRIFLE ||
-						pm->ps->weapon == WP_REPEATER)
+						pm->ps->weapon == WP_REPEATER ||
+						pm->ps->weapon == WP_ROTARY_CANNON)
 					{
 						if (pm->cmd.buttons & BUTTON_BLOCK && pm->ps->sprintFuel > 15)
 						{
@@ -11531,7 +11534,8 @@ static void PM_Footsteps()
 						pm->ps->weapon == WP_BOBA ||
 						pm->ps->weapon == WP_REPEATER ||
 						pm->ps->weapon == WP_BOWCASTER ||
-						pm->ps->weapon == WP_FLECHETTE)
+						pm->ps->weapon == WP_FLECHETTE ||
+						pm->ps->weapon == WP_ROTARY_CANNON)
 					{
 						if (pm->gent && pm->gent->client && pm->gent->client->NPC_class == CLASS_HAZARD_TROOPER)
 						{
@@ -21161,6 +21165,7 @@ static qboolean PM_IsFatiguedGunner()
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_SBD_BLASTER:
 	case WP_DUAL_PISTOL:
 	case WP_DUAL_CLONEPISTOL:
@@ -22861,6 +22866,7 @@ static qboolean PM_WeaponOkOnVehicle(const int weapon)
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_DUAL_PISTOL:
 	case WP_DUAL_CLONEPISTOL:
 		return qtrue;
@@ -23483,6 +23489,7 @@ void Pmove(pmove_t* pmove)
 			|| pm->ps->weapon == WP_JANGO
 			|| pm->ps->weapon == WP_BOBA
 			|| pm->ps->weapon == WP_CLONEPISTOL
+			|| pm->ps->weapon == WP_ROTARY_CANNON
 			|| pm->ps->weapon == WP_DUAL_CLONEPISTOL
 			|| pm->ps->weapon == WP_DUAL_PISTOL
 			//
@@ -23824,6 +23831,7 @@ static qboolean PM_IsMerc()
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_SBD_BLASTER:
 	case WP_DUAL_PISTOL:
 	case WP_DUAL_CLONEPISTOL:

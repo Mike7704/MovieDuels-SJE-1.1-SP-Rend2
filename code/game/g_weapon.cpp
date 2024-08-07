@@ -93,6 +93,7 @@ float weaponSpeed[WP_NUM_WEAPONS][2] =
 	{JANGO_VELOCITY, JANGO_VELOCITY}, // WP_JANGO
 	{BOBA_VELOCITY, BOBA_VELOCITY}, // WP_BOBA
 	{CLONEPISTOL_VEL,CLONEPISTOL_VEL}, //WP_CLONEPISTOL,
+	{ROTARYCANNON_VELOCITY,ROTARYCANNON_VELOCITY}, //WP_ROTARY_CANNON,
 };
 
 float WP_SpeedOfMissileForWeapon(const int wp, const qboolean alt_fire)
@@ -384,6 +385,8 @@ qboolean W_AccuracyLoggableWeapon(const int weapon, const qboolean alt_fire, con
 		case MOD_BOBA_ALT:
 		case MOD_CLONEPISTOL:
 		case MOD_CLONEPISTOL_ALT:
+		case MOD_ROTARY_CANNON:
+		case MOD_ROTARY_CANNON_ALT:
 		case MOD_DISRUPTOR:
 		case MOD_SNIPER:
 		case MOD_BOWCASTER:
@@ -430,6 +433,7 @@ qboolean W_AccuracyLoggableWeapon(const int weapon, const qboolean alt_fire, con
 		case WP_JANGO:
 		case WP_BOBA:
 		case WP_CLONEPISTOL:
+		case WP_ROTARY_CANNON:
 		case WP_DISRUPTOR:
 		case WP_BOWCASTER:
 		case WP_ROCKET_LAUNCHER:
@@ -567,6 +571,7 @@ void CalcMuzzlePoint(gentity_t* const ent, vec3_t forward_vec, vec3_t muzzle_poi
 	case WP_BLASTER:
 	case WP_THEFIRSTORDER:
 	case WP_CLONECARBINE:
+	case WP_ROTARY_CANNON:
 		ViewHeightFix(ent);
 		muzzle_point[2] += ent->client->ps.viewheight; //By eyes
 		muzzle_point[2] -= 1;
@@ -785,6 +790,7 @@ vec3_t WP_MuzzlePoint[WP_NUM_WEAPONS] =
 	{12, 6, -6}, // WP_JANGO,
 	{12, 6, -6}, // WP_BOBA,
 	{12, 6, -6}, // WP_CLONEPISTOL,
+	{12, 6, -6}, // WP_ROTARY_CANNON,
 };
 
 static void WP_RocketLock(const gentity_t* ent, const float lock_dist)
@@ -2115,6 +2121,11 @@ void FireWeapon(gentity_t* ent, const qboolean alt_fire)
 			WP_FireClonePistol(ent, alt_fire);
 		}
 		break;
+
+	case WP_ROTARY_CANNON:
+		WP_FireRotaryCannon(ent, alt_fire);
+		break;
+
 	case WP_SBD_BLASTER:
 		WP_FireSBDPistol(ent, alt_fire);
 		break;

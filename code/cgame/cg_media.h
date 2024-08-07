@@ -192,6 +192,7 @@ using otherhudbits_t = enum
 	OHB_JANGO,
 	OHB_BOBA,
 	OHB_CLONEPISTOL,
+	OHB_ROTARY_CANNON,
 	OHB_WRIST,
 	OHB_DUAL,
 	OHB_DEKA,

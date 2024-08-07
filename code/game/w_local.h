@@ -90,6 +90,8 @@ void WP_FireJangoFPPistolDuals(gentity_t* ent, qboolean alt_fire, qboolean secon
 void WP_FireDroidekaFPPistolDuals(gentity_t* ent, qboolean alt_fire, qboolean second_pistol);
 void WP_FireClonePistol(gentity_t* ent, qboolean alt_fire);
 void WP_FireClonePistolDuals(gentity_t* ent, qboolean alt_fire, qboolean second_pistol);
+void WP_FireRotaryCannonMissile(gentity_t* ent, vec3_t start, vec3_t dir, qboolean alt_fire);
+void WP_FireRotaryCannon(gentity_t* ent, qboolean alt_fire);
 void WP_FireMandoClonePistolDuals(gentity_t* ent, qboolean alt_fire, qboolean second_pistol);
 void WP_BotLaser(gentity_t* ent);
 void WP_FireBowcaster(gentity_t* ent, qboolean alt_fire);

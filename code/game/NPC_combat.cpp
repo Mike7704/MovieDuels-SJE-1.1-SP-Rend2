@@ -473,6 +473,18 @@ static void G_AttackDelay(const gentity_t* self, const gentity_t* enemy)
 				att_delay -= Q_irand(250, 500);
 			}
 			break;
+		case WP_ROTARY_CANNON:
+			if (self->NPC->scriptFlags & SCF_ALT_FIRE)
+			{
+				//rapid-fire blasters
+				att_delay += Q_irand(0, 500);
+			}
+			else
+			{
+				//regular blaster
+				att_delay -= Q_irand(0, 500);
+			}
+			break;
 		default:;
 		}
 
@@ -1522,6 +1534,32 @@ void ChangeWeapon(const gentity_t* ent, const int new_weapon)
 	case WP_JAWA: //prifle
 		ent->NPC->aiFlags &= ~NPCAI_BURST_WEAPON;
 		ent->NPC->burstSpacing = 1000;
+		break;
+	
+	case WP_ROTARY_CANNON:
+		if (ent->NPC->scriptFlags & SCF_ALT_FIRE)
+		{
+			ent->NPC->aiFlags |= NPCAI_BURST_WEAPON;
+			ent->NPC->burstMin = 3;
+			ent->NPC->burstMean = 3;
+			ent->NPC->burstMax = 3;
+			if (g_spskill->integer == 0)
+				ent->NPC->burstSpacing = 1500; //attack debounce
+			else if (g_spskill->integer == 1)
+				ent->NPC->burstSpacing = 1000; //attack debounce
+			else
+				ent->NPC->burstSpacing = 600; //attack debounce
+		}
+		else
+		{
+			ent->NPC->aiFlags &= ~NPCAI_BURST_WEAPON;
+			if (g_spskill->integer == 0)
+				ent->NPC->burstSpacing = 1000; //attack debounce
+			else if (g_spskill->integer == 1)
+				ent->NPC->burstSpacing = 750; //attack debounce
+			else
+				ent->NPC->burstSpacing = 600; //attack debounce
+		}
 		break;
 
 	default:

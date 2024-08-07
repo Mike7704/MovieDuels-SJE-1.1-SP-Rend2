@@ -6628,6 +6628,7 @@ static qboolean GunisMassive(const gentity_t* ent)
 	case WP_ROCKET_LAUNCHER:
 	case WP_REPEATER:
 	case WP_DEMP2:
+	case WP_ROTARY_CANNON:
 		return qtrue;
 	default:;
 	}

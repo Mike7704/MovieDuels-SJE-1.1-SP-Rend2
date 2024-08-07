@@ -867,6 +867,10 @@ static void cg_drawweapontype(const centity_t* cent)
 			}
 		}
 	}
+	else if (cent->currentState.weapon == WP_ROTARY_CANNON)
+	{
+		wp_index = OHB_ROTARY_CANNON;
+	}
 	else if (cent->currentState.weapon == WP_WRIST_BLASTER)
 	{
 		wp_index = OHB_WRIST;
@@ -6638,7 +6642,8 @@ static void CG_DrawCrosshair(vec3_t world_point)
 				cg.snap->ps.weapon == WP_CLONERIFLE ||
 				cg.snap->ps.weapon == WP_CLONECOMMANDO ||
 				cg.snap->ps.weapon == WP_BOBA ||
-				cg.snap->ps.weapon == WP_REBELRIFLE)
+				cg.snap->ps.weapon == WP_REBELRIFLE ||
+				cg.snap->ps.weapon == WP_ROTARY_CANNON)
 			{
 				cgi_R_DrawStretchPic(x + cg.refdef.x + 0.5 * (640 - w), y + cg.refdef.y + 0.5 * (480 - h), w, h, 0, 0,
 					1, 1, cgs.media.crosshairShader[2]);
