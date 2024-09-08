@@ -8208,6 +8208,7 @@ void PM_TorsoAnimation()
 				case WP_ROCKET_LAUNCHER:
 				case WP_CONCUSSION:
 				case WP_DEMP2:
+				case WP_ROTARY_CANNON:
 					if (weapon_busy)
 					{
 						if (cg.renderingThirdPerson)
@@ -8513,6 +8514,7 @@ void PM_TorsoAnimation()
 						}
 					}
 					break;
+
 				default:
 					if (pm->gent->alt_fire)
 					{
@@ -8942,6 +8944,7 @@ void PM_TorsoAnimation()
 				case WP_ROCKET_LAUNCHER:
 				case WP_CONCUSSION:
 				case WP_DEMP2:
+				case WP_ROTARY_CANNON:
 
 					if (pm->ps->forcePowersActive & 1 << FP_GRIP && pm->ps->forcePowerLevel[FP_GRIP] > FORCE_LEVEL_1)
 					{

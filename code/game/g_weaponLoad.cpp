@@ -189,6 +189,7 @@ qboolean playerUsableWeapons[WP_NUM_WEAPONS] =
 	qtrue, //WP_JANGO,
 	qtrue, //WP_BOBA,
 	qtrue, //WP_CLONEPISTOL,
+	qtrue, //WP_ROATRY_CANNON,
 
 	//# #eol
 	//WP_NUM_WEAPONS
@@ -322,6 +323,8 @@ const int defaultDamage[] = {
 	BOBA_DAMAGE, // WP_BOBA
 
 	CLONEPISTOL_DAMAGE, // WP_CLONEPISTOL
+
+	ROTARYCANNON_DAMAGE, // WP_ROTARY_CANNON
 };
 
 const int defaultAltDamage[] = {
@@ -386,6 +389,8 @@ const int defaultAltDamage[] = {
 	BOBA_DAMAGE, // WP_BOBA
 
 	CLONEPISTOL_DAMAGE, // WP_CLONEPISTOL
+
+	ROTARYCANNON_DAMAGE, // WP_ROTARY_CANNON
 };
 
 const int defaultSplashDamage[] = {
@@ -439,6 +444,7 @@ const int defaultSplashDamage[] = {
 	0, // WP_JANGO
 	0, // WP_BOBA
 	0, // WP_CLONEPISTOL
+	0, // WP_ROTARY_CANNON
 };
 
 constexpr float defaultSplashRadius[] = {
@@ -492,6 +498,7 @@ constexpr float defaultSplashRadius[] = {
 	0.0f, // WP_JANGO
 	0.0f, // WP_BOBA
 	0.0f, // WP_CLONEPISTOL
+	0.0f, // WP_ROTARY_CANNON
 };
 
 const int defaultAltSplashDamage[] = {
@@ -545,6 +552,7 @@ const int defaultAltSplashDamage[] = {
 	0, // WP_JANGO
 	0, // WP_BOBA
 	0, // WP_CLONEPISTOL
+	0, // WP_ROTARY_CANNON
 };
 
 constexpr float defaultAltSplashRadius[] = {
@@ -598,6 +606,7 @@ constexpr float defaultAltSplashRadius[] = {
 	0.0f, // WP_JANGO
 	0.0f, // WP_BOBA
 	0.0f, // WP_CLONEPISTOL
+	0.0f, // WP_ROTARY_CANNON
 };
 
 wpnParms_t WpnParms[] =
@@ -765,6 +774,8 @@ void WPN_WeaponType(const char** hold_buf)
 		weaponNum = WP_BOBA;
 	else if (!Q_stricmp(token_str, "WP_CLONEPISTOL"))
 		weaponNum = WP_CLONEPISTOL;
+	else if (!Q_stricmp(token_str, "WP_ROTARY_CANNON"))
+		weaponNum = WP_ROTARY_CANNON;
 	else
 	{
 		weaponNum = 0;

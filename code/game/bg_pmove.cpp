@@ -10681,7 +10681,8 @@ static void PM_Footsteps()
 					pm->ps->weapon == WP_ROCKET_LAUNCHER ||
 					pm->ps->weapon == WP_BOWCASTER ||
 					pm->ps->weapon == WP_FLECHETTE ||
-					pm->ps->weapon == WP_DEMP2)
+					pm->ps->weapon == WP_DEMP2 ||
+					pm->ps->weapon == WP_ROTARY_CANNON)
 				{
 					PM_SetAnim(pm, SETANIM_LEGS, BOTH_RUNBACK_HEAVY, set_anim_flags);
 				}
@@ -10850,7 +10851,8 @@ static void PM_Footsteps()
 					pm->ps->weapon == WP_ROCKET_LAUNCHER ||
 					pm->ps->weapon == WP_BOWCASTER ||
 					pm->ps->weapon == WP_FLECHETTE ||
-					pm->ps->weapon == WP_DEMP2)
+					pm->ps->weapon == WP_DEMP2 ||
+					pm->ps->weapon == WP_ROTARY_CANNON)
 				{
 					PM_SetAnim(pm, SETANIM_LEGS, BOTH_WALKBACK_HEAVY, set_anim_flags);
 				}
@@ -11142,11 +11144,17 @@ static void PM_Footsteps()
 						pm->ps->weapon == WP_ROCKET_LAUNCHER ||
 						pm->ps->weapon == WP_BOWCASTER ||
 						pm->ps->weapon == WP_FLECHETTE ||
-						pm->ps->weapon == WP_DEMP2)
+						pm->ps->weapon == WP_DEMP2 ||
+						pm->ps->weapon == WP_ROTARY_CANNON)
 					{
 						if (pm->cmd.buttons & BUTTON_BLOCK && pm->ps->sprintFuel > 15)
 						{
-							PM_SetAnim(pm, SETANIM_LEGS, BOTH_SPRINT_HEAVY, set_anim_flags);
+							if (pm->ps->weapon == WP_ROTARY_CANNON) {
+								PM_SetAnim(pm, SETANIM_LEGS, BOTH_SPRINT_MINIGUN, set_anim_flags);
+							}
+							else {
+								PM_SetAnim(pm, SETANIM_LEGS, BOTH_SPRINT_HEAVY, set_anim_flags);
+							}
 
 							if (pm->ps->PlayerEffectFlags & 1 << PEF_SPRINTING)
 							{
@@ -11167,6 +11175,9 @@ static void PM_Footsteps()
 							if (pm->gent && pm->gent->client && pm->gent->client->NPC_class == CLASS_HAZARD_TROOPER)
 							{
 								PM_SetAnim(pm, SETANIM_LEGS, BOTH_RUN1, set_anim_flags);
+							}
+							else if (pm->ps->weapon == WP_ROTARY_CANNON) {
+								PM_SetAnim(pm, SETANIM_LEGS, BOTH_JOG_MINIGUN, set_anim_flags);
 							}
 							else
 							{
@@ -11543,11 +11554,15 @@ static void PM_Footsteps()
 						}
 					}
 					else if (pm->ps->weapon == WP_CONCUSSION ||
-						pm->ps->weapon == WP_ROCKET_LAUNCHER)
+						pm->ps->weapon == WP_ROCKET_LAUNCHER ||
+						pm->ps->weapon == WP_ROTARY_CANNON)
 					{
 						if (pm->gent && pm->gent->client && pm->gent->client->NPC_class == CLASS_HAZARD_TROOPER)
 						{
 							PM_SetAnim(pm, SETANIM_LEGS, BOTH_WALK1, set_anim_flags);
+						}
+						else if (pm->ps->weapon == WP_ROTARY_CANNON) {
+							PM_SetAnim(pm, SETANIM_LEGS, BOTH_WALK_MINIGUN, set_anim_flags);
 						}
 						else
 						{
@@ -21161,6 +21176,7 @@ static qboolean PM_IsFatiguedGunner()
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_SBD_BLASTER:
 	case WP_DUAL_PISTOL:
 	case WP_DUAL_CLONEPISTOL:
@@ -23824,6 +23840,7 @@ static qboolean PM_IsMerc()
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_SBD_BLASTER:
 	case WP_DUAL_PISTOL:
 	case WP_DUAL_CLONEPISTOL:

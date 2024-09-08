@@ -306,6 +306,7 @@ qboolean NPC_UpdateAngles(qboolean doPitch, qboolean doYaw)
 			NPC->s.weapon == WP_DROIDEKA ||
 			NPC->s.weapon == WP_BOBA ||
 			NPC->s.weapon == WP_CLONEPISTOL ||
+			NPC->s.weapon == WP_ROTARY_CANNON ||
 			NPC->s.weapon == WP_JAWA)
 		{
 			yawSpeed *= 10.0f;

@@ -1029,6 +1029,7 @@ static qboolean self_is_gunner(const gentity_t* self)
 	case WP_DUAL_CLONEPISTOL:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 	case WP_SBD_BLASTER:
 		return qtrue;
 	default:;
@@ -7403,6 +7404,7 @@ static void jedi_combat_timers_update(const int enemy_dist)
 			case WP_DUAL_CLONEPISTOL:
 			case WP_BOBA:
 			case WP_CLONEPISTOL:
+			case WP_ROTARY_CANNON:
 			case WP_JAWA:
 			case WP_DROIDEKA:
 				//if he has a blaster, move in when:
