@@ -563,6 +563,7 @@ void CalcMuzzlePoint(gentity_t* const ent, vec3_t forward_vec, vec3_t muzzle_poi
 	case WP_ROCKET_LAUNCHER:
 	case WP_CONCUSSION:
 	case WP_THERMAL:
+	case WP_ROTARY_CANNON:
 		ViewHeightFix(ent);
 		muzzle_point[2] += ent->client->ps.viewheight; //By eyes
 		muzzle_point[2] -= 2;
@@ -571,7 +572,6 @@ void CalcMuzzlePoint(gentity_t* const ent, vec3_t forward_vec, vec3_t muzzle_poi
 	case WP_BLASTER:
 	case WP_THEFIRSTORDER:
 	case WP_CLONECARBINE:
-	case WP_ROTARY_CANNON:
 		ViewHeightFix(ent);
 		muzzle_point[2] += ent->client->ps.viewheight; //By eyes
 		muzzle_point[2] -= 1;

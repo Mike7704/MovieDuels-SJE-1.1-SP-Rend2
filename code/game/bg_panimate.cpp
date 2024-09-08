@@ -8208,6 +8208,7 @@ void PM_TorsoAnimation()
 				case WP_ROCKET_LAUNCHER:
 				case WP_CONCUSSION:
 				case WP_DEMP2:
+				case WP_ROTARY_CANNON:
 					if (weapon_busy)
 					{
 						if (cg.renderingThirdPerson)
@@ -8510,37 +8511,6 @@ void PM_TorsoAnimation()
 									PM_SetAnim(pm, SETANIM_TORSO, BOTH_PF_GRENADE, SETANIM_FLAG_NORMAL);
 								}
 							}
-						}
-					}
-					break;
-
-				case WP_ROTARY_CANNON:
-					if (weapon_busy)
-					{
-						if (cg.renderingThirdPerson)
-						{
-							PM_SetAnim(pm, SETANIM_TORSO, TORSO_WEAPONREADY3, SETANIM_FLAG_NORMAL);
-						}
-						else
-						{
-							PM_SetAnim(pm, SETANIM_TORSO, BOTH_ATTACK_FP, SETANIM_FLAG_NORMAL);
-						}
-					}
-					else if (PM_WalkingAnim(pm->ps->legsAnim) && (pm->ps->client_num < MAX_CLIENTS ||
-						PM_ControlledByPlayer()))
-					{
-						//
-						PM_SetAnim(pm, SETANIM_TORSO, pm->ps->legsAnim, SETANIM_FLAG_NORMAL);
-					}
-					else
-					{
-						if (cg.renderingThirdPerson)
-						{
-							PM_SetAnim(pm, SETANIM_TORSO, TORSO_WEAPONREADY3, SETANIM_FLAG_NORMAL);
-						}
-						else
-						{
-							PM_SetAnim(pm, SETANIM_TORSO, BOTH_ATTACK_FP, SETANIM_FLAG_NORMAL);
 						}
 					}
 					break;
@@ -8974,6 +8944,7 @@ void PM_TorsoAnimation()
 				case WP_ROCKET_LAUNCHER:
 				case WP_CONCUSSION:
 				case WP_DEMP2:
+				case WP_ROTARY_CANNON:
 
 					if (pm->ps->forcePowersActive & 1 << FP_GRIP && pm->ps->forcePowerLevel[FP_GRIP] > FORCE_LEVEL_1)
 					{
@@ -9373,48 +9344,6 @@ void PM_TorsoAnimation()
 								}
 							}
 						}
-					}
-					break;
-
-				case WP_ROTARY_CANNON:
-
-					if (pm->ps->forcePowersActive & 1 << FP_GRIP && pm->ps->forcePowerLevel[FP_GRIP] > FORCE_LEVEL_1)
-					{
-						//holding an enemy aloft with force-grip
-						return;
-					}
-					if (pm->ps->forcePowersActive & 1 << FP_LIGHTNING && pm->ps->forcePowerLevel[FP_LIGHTNING] >
-						FORCE_LEVEL_1)
-					{
-						//holding an enemy aloft with force-grip
-						return;
-					}
-					if (pm->ps->forcePowersActive & 1 << FP_GRASP && pm->ps->forcePowerLevel[FP_GRASP] >
-						FORCE_LEVEL_1)
-					{
-						//holding an enemy aloft with force-grip
-						return;
-					}
-					if (weapon_busy)
-					{
-						if (cg.renderingThirdPerson)
-						{
-							PM_SetAnim(pm, SETANIM_TORSO, TORSO_WEAPONREADY3, SETANIM_FLAG_NORMAL);
-						}
-						else
-						{
-							PM_SetAnim(pm, SETANIM_TORSO, BOTH_ATTACK_FP, SETANIM_FLAG_NORMAL);
-						}
-					}
-					else if (PM_WalkingAnim(pm->ps->legsAnim) && (pm->ps->client_num < MAX_CLIENTS ||
-						PM_ControlledByPlayer()))
-					{
-						//
-						PM_SetAnim(pm, SETANIM_TORSO, pm->ps->legsAnim, SETANIM_FLAG_NORMAL);
-					}
-					else
-					{
-						PM_SetAnim(pm, SETANIM_TORSO, TORSO_WEAPONIDLE3, SETANIM_FLAG_NORMAL);
 					}
 					break;
 

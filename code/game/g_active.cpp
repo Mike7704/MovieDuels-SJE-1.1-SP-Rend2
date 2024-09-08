@@ -7830,7 +7830,7 @@ static int ReloadTime(const gentity_t* ent)
 	{
 		return 1000;
 	}
-	if (ent->client->ps.weapon == WP_ROCKET_LAUNCHER)
+	if (ent->client->ps.weapon == WP_ROCKET_LAUNCHER || ent->client->ps.weapon == WP_ROTARY_CANNON)
 	{
 		return 3000;
 	}
@@ -7843,7 +7843,7 @@ static int pain_time(const gentity_t* ent)
 	{
 		return 250;
 	}
-	if (ent->client->ps.weapon == WP_ROCKET_LAUNCHER)
+	if (ent->client->ps.weapon == WP_ROCKET_LAUNCHER || ent->client->ps.weapon == WP_ROTARY_CANNON)
 	{
 		return 500;
 	}
@@ -7884,6 +7884,7 @@ qboolean IsHoldingReloadableGun(const gentity_t* ent)
 	case WP_JANGO:
 	case WP_BOBA:
 	case WP_CLONEPISTOL:
+	case WP_ROTARY_CANNON:
 		return qtrue;
 	default:;
 	}
@@ -7969,7 +7970,7 @@ void WP_ReloadGun(gentity_t* ent)
 					NPC_SetAnim(ent, SETANIM_TORSO, BOTH_PISTOLFAIL, SETANIM_AFLAG_BLOCKPACE);
 				}
 			}
-			else if (ent->s.weapon == WP_ROCKET_LAUNCHER)
+			else if (ent->s.weapon == WP_ROCKET_LAUNCHER || ent->s.weapon == WP_ROTARY_CANNON)
 			{
 				NPC_SetAnim(ent, SETANIM_TORSO, BOTH_ROCKETFAIL, SETANIM_AFLAG_BLOCKPACE);
 			}
@@ -8150,6 +8151,21 @@ void WP_ReloadGun(gentity_t* ent)
 				if (ent->client->ps.ammo[AMMO_ROCKETS] < clip_size(AMMO_ROCKETS))
 				{
 					ent->client->ps.ammo[AMMO_ROCKETS] += magazine_size(ent, AMMO_ROCKETS);
+					NPC_SetAnim(ent, SETANIM_TORSO, BOTH_ROCKETRELOAD, SETANIM_FLAG_OVERRIDE | SETANIM_FLAG_HOLD);
+					G_SoundOnEnt(ent, CHAN_WEAPON, "sound/weapons/reload.mp3");
+					ent->reloadTime = level.time + ReloadTime(ent);
+				}
+				else
+				{
+					NPC_SetAnim(ent, SETANIM_TORSO, BOTH_ROCKETCHARGE, SETANIM_FLAG_OVERRIDE | SETANIM_FLAG_HOLD);
+					G_SoundOnEnt(ent, CHAN_WEAPON, "sound/weapons/recharge.mp3");
+				}
+			}
+			else if (ent->s.weapon == WP_ROTARY_CANNON)
+			{
+				if (ent->client->ps.ammo[AMMO_METAL_BOLTS] < clip_size(AMMO_METAL_BOLTS))
+				{
+					ent->client->ps.ammo[AMMO_METAL_BOLTS] += magazine_size(ent, AMMO_METAL_BOLTS);
 					NPC_SetAnim(ent, SETANIM_TORSO, BOTH_ROCKETRELOAD, SETANIM_FLAG_OVERRIDE | SETANIM_FLAG_HOLD);
 					G_SoundOnEnt(ent, CHAN_WEAPON, "sound/weapons/reload.mp3");
 					ent->reloadTime = level.time + ReloadTime(ent);
